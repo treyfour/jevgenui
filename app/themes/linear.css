@@ -1,0 +1,118 @@
+/* Linear family. Values measured from linear.app's light and dark themes; see docs/DESIGN.md.
+   `:root` doubles as the fallback, so every token always has a value. */
+
+/* Light, measured from linear.app's light theme. Text and data colors are deepened where
+   Linear's values fall below WCAG contrast on white. */
+:root,
+[data-theme="linear-light"] {
+  color-scheme: light;
+  --background: #f4f4f5;
+  --foreground: #282a30;
+  --card: #ffffff;
+  --card-foreground: #282a30;
+  --popover: #ffffff;
+  --popover-foreground: #282a30;
+  --popover-shadow: 0 4px 24px #0000001a;
+  --primary: #5e6ad2;
+  --primary-foreground: #ffffff;
+  --secondary: #0000000a;
+  --secondary-foreground: #3c4149;
+  --muted: #0000000a;
+  --muted-foreground: #6f6e77;
+  --accent: #0000000a;
+  --accent-foreground: #282a30;
+  --destructive: #d23f3f;
+  --border: #e4e2e4;
+  --input: #00000014;
+  --ring: #5e6ad2;
+  --radius: 4px;
+
+  --chart-1: #0097a7;
+  --chart-2: #2f86e0;
+  --chart-3: #1f9a3d;
+  --chart-4: #f06a2c;
+  --chart-5: #d9a300;
+  --chart-6: #86848d;
+
+  --canvas: #f4f4f5;
+  --faint: #86848d;
+  --signal: #5e6ad2;
+  --signal-soft: #f1f1ff;
+  --you: #282a30;
+  --you-foreground: #ffffff;
+  --positive: #18823a;
+  --hover: #00000012;
+  --sans-font: "Inter", "Inter Fallback", ui-sans-serif, system-ui, sans-serif;
+  --chrome-font: var(--sans-font);
+  --display-font: var(--sans-font);
+  --r-sm: 3px;
+  --r-md: 4px;
+  --r-lg: 6px;
+  --r-xl: 8px;
+  --r-pill: 4px;
+  --r-bar: 2px;
+  --canvas-art: var(--canvas);
+  --plot-art: none;
+  --window-bar: transparent;
+  --window-bar-foreground: var(--foreground);
+  --track: transparent;
+}
+
+/* Dark, measured from linear.app (data-theme="dark"). */
+[data-theme="linear-dark"] {
+  color-scheme: dark;
+  --popover-shadow: 0 7px 32px #00000059;
+  --background: #08090a;
+  --foreground: #f7f8f8;
+  --card: #0f1011;
+  --card-foreground: #f7f8f8;
+  --popover: #1c1c1f;
+  --popover-foreground: #f7f8f8;
+  --primary: #5e6ad2;
+  --primary-foreground: #ffffff;
+  --secondary: #ffffff0d;
+  --secondary-foreground: #d0d6e0;
+  --muted: #ffffff0d;
+  --muted-foreground: #8a8f98;
+  --accent: #ffffff0d;
+  --accent-foreground: #f7f8f8;
+  --destructive: #eb5757;
+  --border: #23252a;
+  --input: #ffffff14;
+  --ring: #5e69d1;
+  --radius: 4px;
+
+  /* Categorical series, in catalog order: an entity keeps its color in every chart.
+     Indigo is left out so it stays Jev's. */
+  --chart-1: #00b8cc;
+  --chart-2: #4ea7fc;
+  --chart-3: #27a644;
+  --chart-4: #fc7840;
+  --chart-5: #f0bf00;
+  --chart-6: #62666d;
+
+  --canvas: #08090a;
+  --faint: #62666d;
+  /* Jev's voice: confidence meters, its mark, alternatives it offers. */
+  --signal: #7170ff;
+  --signal-soft: #18182f;
+  /* The user's voice: overrides, as an inverted pill. */
+  --you: #e5e5e6;
+  --you-foreground: #08090a;
+  --positive: #27a644;
+  --hover: #ffffff14;
+  --sans-font: "Inter", "Inter Fallback", ui-sans-serif, system-ui, sans-serif;
+  --chrome-font: var(--sans-font);
+  --display-font: var(--sans-font);
+  --r-sm: 3px;
+  --r-md: 4px;
+  --r-lg: 6px;
+  --r-xl: 8px;
+  --r-pill: 4px;
+  --r-bar: 2px;
+  --canvas-art: var(--canvas);
+  --plot-art: none;
+  --window-bar: transparent;
+  --window-bar-foreground: var(--foreground);
+  --track: transparent;
+}

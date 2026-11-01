@@ -1,26 +1,131 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import "./themes/linear.css";
+@import "./themes/jev.css";
+
+/* <html data-theme> picks the palette and data-mode its lightness, both set before paint by
+   the script in app/layout.tsx. Theme files fill in the tokens below. */
+@custom-variant dark (&:where([data-mode="dark"], [data-mode="dark"] *));
+
+/* The token contract. Components reference only these names; themes only set values. */
 
 @theme inline {
+  /* Per-theme fonts. Themes give literal family names, since next/font's own variables
+     aren't usable inside @theme. chrome = titles and labels, display = big numbers. */
+  --font-sans: var(--sans-font);
+  --font-heading: var(--sans-font);
+  --font-chrome: var(--chrome-font);
+  --font-display: var(--display-font);
+  --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-chart-6: var(--chart-6);
+
+  /* App tokens */
+  --color-canvas: var(--canvas);
+  --color-faint: var(--faint);
+  --color-signal: var(--signal);
+  --color-signal-soft: var(--signal-soft);
+  --color-you: var(--you);
+  --color-you-foreground: var(--you-foreground);
+  --color-positive: var(--positive);
+  --color-hover: var(--hover);
+  --color-window-bar: var(--window-bar);
+  --color-window-bar-foreground: var(--window-bar-foreground);
+  --color-track: var(--track);
+
+  /* Roles, not sizes: pill = chips and badges, bar = data marks. */
+  --radius-sm: var(--r-sm);
+  --radius-md: var(--r-md);
+  --radius-lg: var(--r-lg);
+  --radius-xl: var(--r-xl);
+  --radius-pill: var(--r-pill);
+  --radius-bar: var(--r-bar);
+  --shadow-popover: var(--popover-shadow);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@theme {
+  /* Inter Variable's in-between weights carry much of the look. */
+  --font-weight-medium: 510;
+  --font-weight-semibold: 590;
+
+  --text-sm: 0.8125rem;
+  --text-sm--line-height: 1.5;
+  --text-2xs: 0.6875rem;
+  --text-2xs--line-height: 1.4;
+  --text-3xs: 0.625rem;
+  --text-3xs--line-height: 1.4;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+  html {
+    @apply font-sans;
+    font-feature-settings: "cv01", "ss03", "zero";
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Art layers a theme can paint: the page backdrop and the field behind a chart. */
+@utility bg-canvas-art {
+  background: var(--canvas-art);
+  background-attachment: fixed;
+}
+
+@utility bg-plot-art {
+  background: var(--plot-art);
+}
+
+@utility animate-card-enter {
+  animation: card-enter 320ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    transition-duration: 1ms !important;
+  }
 }

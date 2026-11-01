@@ -1,0 +1,282 @@
+/* Jev family: an exploration of typesafe.ai's marketing language in product UI.
+   Measured from the site: ink #1e1e1e, pink #f386a1, magenta #e551ba, green #03aa5c,
+   hyperlink blue #0000ee, square corners, and a dithered cloud sky running
+   sky #6badcd → periwinkle #7e7fde → violet #8b63e6 → purple #9e5ae8 → magenta #f554c4.
+   Die Grotesk and LisaTerminal are commercial; Inter Tight and VT323 stand in. */
+
+[data-theme^="jev-"] {
+  --sans-font: "Inter Tight", "Inter Tight Fallback", ui-sans-serif, system-ui, sans-serif;
+  --chrome-font: "VT323", "VT323 Fallback", ui-monospace, monospace;
+  --display-font: "Inter Tight", "Inter Tight Fallback", ui-sans-serif, system-ui, sans-serif;
+  --r-sm: 0px;
+  --r-md: 0px;
+  --r-lg: 0px;
+  --r-xl: 0px;
+  --r-pill: 0px;
+  --r-bar: 0px;
+  --radius: 0px;
+  --spectrum: linear-gradient(90deg, #f554c4, #b353e3 35%, #8b63e6 55%, #7e7fde 75%, #6badcd);
+  --grain: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .22 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* Sky: the site's hero, faithfully. A dithered cloud backdrop, white retro windows with ink
+   title bars, and the cloud spectrum as the data palette. */
+[data-theme="jev-sky"] {
+  color-scheme: light;
+  --background: #fafafa;
+  --foreground: #1e1e1e;
+  --card: #ffffff;
+  --card-foreground: #1e1e1e;
+  --popover: #ffffff;
+  --popover-foreground: #1e1e1e;
+  --popover-shadow: 4px 4px 0 #1e1e1e;
+  --primary: #1e1e1e;
+  --primary-foreground: #fefefe;
+  --secondary: #1e1e1e0d;
+  --secondary-foreground: #1e1e1e;
+  --muted: #1e1e1e0d;
+  --muted-foreground: #55555f;
+  --accent: #1e1e1e0d;
+  --accent-foreground: #1e1e1e;
+  --destructive: #c8264e;
+  --border: #1e1e1e;
+  --input: #1e1e1e;
+  --ring: #0000ee;
+  --chart-1: #f554c4;
+  --chart-2: #9e5ae8;
+  --chart-3: #4f7fe0;
+  --chart-4: #6badcd;
+  --chart-5: #f386a1;
+  --chart-6: #1e1e1e;
+  --canvas: #fafafa;
+  --faint: #7c7c86;
+  --signal: #c7349f;
+  --signal-soft: #fde8f6;
+  --you: #1e1e1e;
+  --you-foreground: #fefefe;
+  --positive: #03884a;
+  --hover: #1e1e1e14;
+  --window-bar: #1e1e1e;
+  --window-bar-foreground: #fefefe;
+  --track: transparent;
+  --plot-art: radial-gradient(circle, #1e1e1e22 0.7px, transparent 0.9px) 0 0 / 5px 5px;
+  /* Clouds: big soft magenta masses at the edges, violet in the middle distance, sky above,
+     fading to paper. A white halftone screen over it fakes the site's dithering. */
+  --canvas-art:
+    var(--grain),
+    radial-gradient(circle, #ffffff55 0.75px, transparent 1px) 0 0 / 4px 4px,
+    radial-gradient(ellipse 30% 42% at 2% 22%, #f554c4, transparent 72%),
+    radial-gradient(ellipse 26% 36% at 99% 14%, #f554c4f0, transparent 72%),
+    radial-gradient(ellipse 22% 26% at 20% 6%, #ff7fd4cc, transparent 70%),
+    radial-gradient(ellipse 34% 30% at 32% 46%, #b353e3b3, transparent 72%),
+    radial-gradient(ellipse 40% 28% at 70% 48%, #8b63e699, transparent 72%),
+    radial-gradient(ellipse 30% 30% at 88% 62%, #f554c480, transparent 72%),
+    linear-gradient(180deg, #5fa3cf 0%, #79aedb 26%, #c9c3ee 58%, #f3e6f5 80%, #fafafa 100%) #fafafa;
+}
+
+/* Riso: the site's chart sections. Flat pink paper, ink linework, halftone plot fields,
+   black bars on segmented tracks, and the site's label-tag colors for series. */
+[data-theme="jev-riso"] {
+  color-scheme: light;
+  --background: #f386a1;
+  --foreground: #1e1e1e;
+  --card: #f69ab1;
+  --card-foreground: #1e1e1e;
+  --popover: #fefefe;
+  --popover-foreground: #1e1e1e;
+  --popover-shadow: 4px 4px 0 #1e1e1e;
+  --primary: #1e1e1e;
+  --primary-foreground: #f386a1;
+  --secondary: #1e1e1e14;
+  --secondary-foreground: #1e1e1e;
+  --muted: #1e1e1e14;
+  --muted-foreground: #3d2830;
+  --accent: #1e1e1e14;
+  --accent-foreground: #1e1e1e;
+  --destructive: #7d0f2b;
+  --border: #1e1e1e;
+  --input: #1e1e1e;
+  --ring: #1e1e1e;
+  --chart-1: #1e1e1e;
+  --chart-2: #3a64b0;
+  --chart-3: #2f8f3c;
+  --chart-4: #8a3f1c;
+  --chart-5: #a3243f;
+  --chart-6: #fefefe;
+  --canvas: #f386a1;
+  --faint: #5e3d49;
+  --signal: #1e1e1e;
+  --signal-soft: #1e1e1e1a;
+  --you: #1e1e1e;
+  --you-foreground: #f386a1;
+  --positive: #0b5e33;
+  --hover: #1e1e1e1f;
+  --window-bar: #1e1e1e;
+  --window-bar-foreground: #f386a1;
+  --track: #1e1e1e26;
+  --plot-art: radial-gradient(circle, #1e1e1e3d 0.8px, transparent 1px) 0 0 / 5px 5px;
+  --canvas-art: radial-gradient(circle, #ffffff1f 0.8px, transparent 1px) 0 0 / 4px 4px, #f386a1;
+}
+
+/* Night: the radical one. A dithered aurora over violet-black, the spectrum as light, and
+   data marks that reveal the spectrum as they grow, printed as dot matrix. */
+[data-theme="jev-night"] {
+  color-scheme: dark;
+  --background: #0d0b10;
+  --foreground: #f4eefa;
+  --card: #141118;
+  --card-foreground: #f4eefa;
+  --popover: #1b1720;
+  --popover-foreground: #f4eefa;
+  --popover-shadow: 0 0 0 1px #2c2535, 0 12px 40px #f554c41f;
+  --primary: #f554c4;
+  --primary-foreground: #1a0914;
+  --secondary: #ffffff0d;
+  --secondary-foreground: #ddd2ea;
+  --muted: #ffffff0d;
+  --muted-foreground: #9d92ae;
+  --accent: #ffffff0d;
+  --accent-foreground: #f4eefa;
+  --destructive: #ff5c7a;
+  --border: #2c2535;
+  --input: #ffffff1a;
+  --ring: #b353e3;
+  --chart-1: #f554c4;
+  --chart-2: #b353e3;
+  --chart-3: #8b63e6;
+  --chart-4: #6b8ff0;
+  --chart-5: #6badcd;
+  --chart-6: #6c6278;
+  --canvas: #0d0b10;
+  --faint: #6c6278;
+  --signal: #f554c4;
+  --signal-soft: #3a1631;
+  --you: #f4eefa;
+  --you-foreground: #0d0b10;
+  --positive: #3ddc97;
+  --hover: #ffffff14;
+  --window-bar: transparent;
+  --window-bar-foreground: #f4eefa;
+  --track: #ffffff0a;
+  --plot-art: radial-gradient(circle, #ffffff10 0.7px, transparent 0.9px) 0 0 / 5px 5px;
+  /* Aurora: the cloud spectrum as light, broken up by a dark halftone screen. */
+  --canvas-art:
+    radial-gradient(circle, #0d0b10 0.8px, transparent 1.2px) 0 0 / 3px 3px,
+    radial-gradient(ellipse 50% 46% at 10% -4%, #f554c4b3, transparent 70%),
+    radial-gradient(ellipse 42% 40% at 48% 2%, #9e5ae899, transparent 70%),
+    radial-gradient(ellipse 46% 44% at 94% -2%, #6badcd8c, transparent 70%),
+    radial-gradient(ellipse 60% 30% at 70% 104%, #b353e340, transparent 70%) #0d0b10;
+}
+
+/* ---- Flourishes. Structural touches tokens can't express, scoped to data-slot hooks. ---- */
+
+/* The Jev mark takes the title-bar ink when the bar is dark and the mark would vanish. */
+[data-theme="jev-riso"] [data-slot="window-bar"] [data-slot="jev-mark"] {
+  color: #f386a1;
+}
+[data-theme="jev-sky"] [data-slot="window-bar"] [data-slot="jev-mark"] {
+  color: #f554c4;
+}
+
+/* Retro windows: hard ink offset, labels in the terminal face. */
+[data-theme="jev-sky"] [data-slot="panel"],
+[data-theme="jev-riso"] [data-slot="panel"] {
+  box-shadow: 5px 5px 0 #1e1e1e;
+}
+[data-theme^="jev-"] [data-slot="window-title"] {
+  font-family: var(--chrome-font);
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+[data-theme^="jev-"] [data-slot="tag"],
+[data-theme^="jev-"] [data-slot="axis"] {
+  font-family: var(--chrome-font);
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+[data-theme^="jev-"] [data-slot="display"] {
+  letter-spacing: -0.045em;
+}
+
+/* Page titles as the site's white nav tabs. */
+[data-theme="jev-sky"] [data-slot="page-title"] {
+  display: inline-block;
+  background: #fefefe;
+  padding: 0.1rem 0.45rem;
+  color: #1e1e1e;
+}
+[data-theme="jev-riso"] [data-slot="page-title"],
+[data-theme="jev-night"] [data-slot="page-title"] {
+  font-family: var(--chrome-font);
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+/* Chips as the site's nav tabs; the user bubble as an ink label. */
+[data-theme="jev-sky"] [data-slot="chip"] {
+  background: #ffffff;
+  box-shadow: inset 0 0 0 1px #1e1e1e;
+}
+[data-theme="jev-sky"] [data-slot="chip"]:hover,
+[data-theme="jev-riso"] [data-slot="chip"]:hover {
+  background: #1e1e1e;
+  color: #fefefe;
+}
+[data-theme="jev-riso"] [data-slot="chip"] {
+  box-shadow: inset 0 0 0 1px #1e1e1e;
+  background: transparent;
+}
+[data-theme="jev-sky"] [data-slot="bubble"],
+[data-theme="jev-riso"] [data-slot="bubble"] {
+  background: #1e1e1e;
+  color: #fefefe;
+}
+
+/* Jev's alternatives as plain hyperlinks, in the site's #0000ee. */
+[data-theme="jev-sky"] [data-slot="alt-chip"] {
+  border: 0;
+  padding: 0;
+  color: #0000ee;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+[data-theme="jev-sky"] [data-slot="alt-chip"]:hover {
+  background: transparent;
+  color: #551a8b;
+}
+
+/* Riso: every single-series mark is ink, on segmented tracks like the site's error-rate chart. */
+[data-theme="jev-riso"] [data-chart="ranking"] [data-slot="mark"],
+[data-theme="jev-riso"] [data-chart="funnel"] [data-slot="mark"] {
+  background-color: #1e1e1e !important;
+}
+[data-theme="jev-riso"] [data-slot="track"] {
+  background-image: repeating-linear-gradient(90deg, transparent 0 calc(25% - 2px), #f386a1 calc(25% - 2px) 25%);
+}
+
+/* Night: marks reveal the spectrum in proportion to their value, printed as dot matrix. */
+[data-theme="jev-night"] [data-chart="ranking"] [data-slot="mark"],
+[data-theme="jev-night"] [data-chart="funnel"] [data-slot="mark"] {
+  background-image: var(--spectrum);
+  background-size: calc(100% / var(--fill, 1)) 100%;
+}
+[data-theme="jev-night"] [data-slot="mark"] {
+  mask-image: radial-gradient(circle, #000 0.95px, transparent 1.2px);
+  mask-size: 3px 3px;
+}
+[data-theme="jev-night"] [data-slot="trend-line"] {
+  stroke: url(#jev-spectrum);
+  filter: drop-shadow(0 0 5px #f554c4b3) drop-shadow(0 0 14px #9e5ae866);
+}
+
+/* Trend area: halftone dots on the Jev themes, gradient wash on Linear. */
+[data-slot="trend-area-dots"] {
+  display: none;
+}
+[data-theme^="jev-"] [data-slot="trend-area-dots"] {
+  display: inline;
+}
+[data-theme^="jev-"] [data-slot="trend-area"] {
+  display: none;
+}
